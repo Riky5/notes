@@ -3,5 +3,9 @@
 // to help in debugging and getting visibility in your JS code.
 //
 // on Mac (using Chrome), use Option+Command+J to open the console and see this message.
+const NotesModel = require('./notesModel')
 
 console.log('The notes app is running');
+
+let notes = new NotesModel()
+console.log(notes.getNotes());
