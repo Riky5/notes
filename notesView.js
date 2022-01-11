@@ -16,8 +16,16 @@ class NotesView {
     this.displayNotes();
   }
 
+  clearNote() {
+    const allNotes = document.querySelectorAll('.note');
+    allNotes.forEach(note => {
+      note.remove();
+    })
+    document.querySelector('#add-note-input').value = ""
+  }
 
   displayNotes() {
+    this.clearNote();
     const mynotes = this.model.getNotes()
     console.log(this.model.getNotes())
     mynotes.forEach( element=> {
@@ -26,7 +34,6 @@ class NotesView {
       div.className = 'note';
       this.mainContainerEl.append(div)})
   }
-
 }
 
 module.exports = NotesView

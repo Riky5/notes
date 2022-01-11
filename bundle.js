@@ -42,7 +42,15 @@
           this.model.addNotes(newNote);
           this.displayNotes();
         }
+        clearNote() {
+          const allNotes = document.querySelectorAll(".note");
+          allNotes.forEach((note) => {
+            note.remove();
+          });
+          document.querySelector("#add-note-input").value = "";
+        }
         displayNotes() {
+          this.clearNote();
           const mynotes = this.model.getNotes();
           console.log(this.model.getNotes());
           mynotes.forEach((element) => {
