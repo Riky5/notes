@@ -34,7 +34,7 @@ describe('NotesView', () => {
     expect(document.querySelectorAll('div.note')[0].innerText).toEqual('My new amazing test note');
   });
 
-  it('adds a new note', () => {
+  it('adds two new notes', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel();
@@ -49,9 +49,9 @@ describe('NotesView', () => {
     const input2 = document.querySelector('#add-note-input');
     input2.value = 'My new note';
 
-    const button2 = document.querySelector('#add-note-btn');
-    button2.click();
+    button.click();
 
     expect(document.querySelectorAll('div.note').length).toEqual(2);
+    expect(document.querySelectorAll('div.note')[1].innerText).toEqual('My new note');
   });
 });
